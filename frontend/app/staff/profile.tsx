@@ -277,18 +277,22 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     padding: SPACING.md,
     borderRadius: BORDER_RADIUS.md,
+    gap: SPACING.sm,
   },
   satisfactionLeft: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: SPACING.sm,
+    flex: 1,
+    minWidth: 0,
   },
   satisfactionText: {
-    fontSize: 14,
+    fontSize: 13,
     color: COLORS.white,
+    flexShrink: 1,
   },
   satisfactionValue: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
     color: COLORS.accent,
   },
@@ -299,11 +303,13 @@ const styles = StyleSheet.create({
     paddingVertical: SPACING.md,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 255, 255, 0.1)',
+    gap: SPACING.lg,
   },
   detailLeft: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: SPACING.sm,
+    flexShrink: 0,
   },
   detailLabel: {
     fontSize: 14,
@@ -313,6 +319,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: COLORS.accent,
+    flexShrink: 1,
+    textAlign: 'right',
   },
   settingRow: {
     flexDirection: 'row',

@@ -28,6 +28,7 @@ export const Input: React.FC<InputProps> = ({ label, error, icon, style, ...prop
 const styles = StyleSheet.create({
   container: {
     marginBottom: SPACING.md,
+    width: '100%',
   },
   label: {
     color: COLORS.cream,
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    width: '100%',
   },
   input: {
     flex: 1,

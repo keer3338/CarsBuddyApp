@@ -6,7 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   RefreshControl,
-  Dimensions,
+  useWindowDimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
@@ -16,12 +16,12 @@ import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { useAuth } from '../../context/AuthContext';
 
-const { width } = Dimensions.get('window');
-
 export default function CustomerDashboard() {
   const router = useRouter();
   const { user, logout } = useAuth();
   const [refreshing, setRefreshing] = useState(false);
+  const { width: windowWidth } = useWindowDimensions();
+  const ACTION_CARD_WIDTH = (windowWidth - SPACING.lg * 2 - SPACING.md) / 2;
 
   // Mock data - In real app, fetch from API
   const subscriptionData = {
@@ -157,7 +157,7 @@ export default function CustomerDashboard() {
           <Text style={styles.quickActionsTitle}>Quick Actions</Text>
           <View style={styles.actionsGrid}>
             <TouchableOpacity
-              style={styles.actionCard}
+              style={[styles.actionCard, { width: ACTION_CARD_WIDTH }]}
               onPress={() => router.push('/customer/bookings')}
             >
               <Card variant="glass" style={styles.actionCardInner}>
@@ -166,7 +166,7 @@ export default function CustomerDashboard() {
               </Card>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.actionCard}
+              style={[styles.actionCard, { width: ACTION_CARD_WIDTH }]}
               onPress={() => router.push('/customer/bookings')}
             >
               <Card variant="glass" style={styles.actionCardInner}>
@@ -175,7 +175,7 @@ export default function CustomerDashboard() {
               </Card>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.actionCard}
+              style={[styles.actionCard, { width: ACTION_CARD_WIDTH }]}
               onPress={() => router.push('/customer/wallet')}
             >
               <Card variant="glass" style={styles.actionCardInner}>
@@ -183,7 +183,10 @@ export default function CustomerDashboard() {
                 <Text style={styles.actionText}>View Wallet</Text>
               </Card>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.actionCard} onPress={() => {}}>
+            <TouchableOpacity
+              style={[styles.actionCard, { width: ACTION_CARD_WIDTH }]}
+              onPress={() => {}}
+            >
               <Card variant="glass" style={styles.actionCardInner}>
                 <Ionicons name="alert-circle" size={32} color={COLORS.accent} />
                 <Text style={styles.actionText}>Raise Issue</Text>
@@ -385,13 +388,13 @@ const styles = StyleSheet.create({
     gap: SPACING.md,
   },
   actionCard: {
-    width: (width - SPACING.lg * 2 - SPACING.md) / 2,
+    height: 120,
   },
   actionCardInner: {
+    flex: 1,
     alignItems: 'center',
-    paddingVertical: SPACING.xl,
-    minHeight: 120,
     justifyContent: 'center',
+    paddingVertical: SPACING.md,
   },
   actionText: {
     fontSize: 14,

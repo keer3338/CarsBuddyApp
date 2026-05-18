@@ -268,14 +268,15 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.md,
   },
   serviceCard: {
-    width: 140,
+    width: 150,
+    height: 150,
     marginRight: SPACING.md,
   },
   serviceCardInner: {
+    flex: 1,
     alignItems: 'center',
-    paddingVertical: SPACING.lg,
-    minHeight: 130,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: SPACING.md,
   },
   serviceName: {
     fontSize: 14,

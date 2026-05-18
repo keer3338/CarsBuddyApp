@@ -69,7 +69,9 @@ export default function ProfileScreen() {
               <Ionicons name="person" size={40} color={COLORS.accent} />
             </View>
             <View style={styles.profileInfo}>
-              <Text style={styles.profileName}>{user?.name}</Text>
+              <Text style={styles.profileName} numberOfLines={1} ellipsizeMode="tail">
+                {user?.name}
+              </Text>
               <Text style={styles.profileMobile}>{user?.mobile}</Text>
             </View>
             <TouchableOpacity
@@ -238,7 +240,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   profileName: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: COLORS.white,
     marginBottom: 4,

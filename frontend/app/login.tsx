@@ -136,7 +136,7 @@ export default function LoginScreen() {
                     <Text
                       style={[styles.roleText, selectedRole === 'staff' && styles.roleTextActive]}
                     >
-                      Staff / Cleaner
+                      Staff
                     </Text>
                     {selectedRole === 'staff' && (
                       <View style={styles.checkmark}>
@@ -287,6 +287,8 @@ const styles = StyleSheet.create({
   },
   roleCardInner: {
     alignItems: 'center',
+    justifyContent: 'center',
+    height: 140,
     paddingVertical: SPACING.xl,
     position: 'relative',
   },

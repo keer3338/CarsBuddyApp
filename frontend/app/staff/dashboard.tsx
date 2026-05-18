@@ -282,12 +282,15 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingHorizontal: SPACING.lg,
     marginVertical: SPACING.md,
-    gap: SPACING.md,
+    columnGap: SPACING.md,
+    rowGap: SPACING.md,
   },
   statCard: {
-    width: '48%',
-    padding: SPACING.lg,
+    width: '47%',
+    height: 130,
+    padding: SPACING.md,
     alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: BORDER_RADIUS.lg,
   },
   statValue: {
