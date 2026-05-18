@@ -149,71 +149,73 @@ export default function LoginScreen() {
             </View>
 
             {/* Login Form */}
-            <Card variant="elevated" style={styles.formCard}>
+            <View style={styles.formCard}>
               <Text style={styles.formTitle}>
                 {selectedRole === 'customer' ? 'Customer Login' : 'Staff Login'}
               </Text>
 
-              <Input
-                label="Mobile Number"
-                placeholder="Enter 10-digit mobile number"
-                keyboardType="phone-pad"
-                maxLength={10}
-                value={mobile}
-                onChangeText={setMobile}
-                icon={<Ionicons name="call" size={20} color={COLORS.accent} />}
-                editable={!showOtp}
-              />
-
-              {selectedRole === 'staff' && (
+              <View style={styles.formInner}>
                 <Input
-                  label="Staff ID"
-                  placeholder="Enter your Staff ID"
-                  value={staffId}
-                  onChangeText={setStaffId}
-                  icon={<Ionicons name="card" size={20} color={COLORS.accent} />}
+                  label="Mobile Number"
+                  placeholder="Enter 10-digit mobile number"
+                  keyboardType="phone-pad"
+                  maxLength={10}
+                  value={mobile}
+                  onChangeText={setMobile}
+                  icon={<Ionicons name="call" size={20} color={COLORS.accent} />}
                   editable={!showOtp}
                 />
-              )}
 
-              {!showOtp ? (
-                <Button
-                  title="Send OTP"
-                  onPress={handleSendOtp}
-                  style={styles.button}
-                />
-              ) : (
-                <>
+                {selectedRole === 'staff' && (
                   <Input
-                    label="Enter OTP"
-                    placeholder="Enter 4-digit OTP"
-                    keyboardType="number-pad"
-                    maxLength={4}
-                    value={otp}
-                    onChangeText={setOtp}
-                    icon={<Ionicons name="lock-closed" size={20} color={COLORS.accent} />}
+                    label="Staff ID"
+                    placeholder="Enter your Staff ID"
+                    value={staffId}
+                    onChangeText={setStaffId}
+                    icon={<Ionicons name="card" size={20} color={COLORS.accent} />}
+                    editable={!showOtp}
                   />
+                )}
 
+                {!showOtp ? (
                   <Button
-                    title="Login"
-                    onPress={handleLogin}
-                    loading={loading}
+                    title="Send OTP"
+                    onPress={handleSendOtp}
                     style={styles.button}
                   />
+                ) : (
+                  <>
+                    <Input
+                      label="Enter OTP"
+                      placeholder="Enter 4-digit OTP"
+                      keyboardType="number-pad"
+                      maxLength={4}
+                      value={otp}
+                      onChangeText={setOtp}
+                      icon={<Ionicons name="lock-closed" size={20} color={COLORS.accent} />}
+                    />
 
-                  <TouchableOpacity onPress={() => setShowOtp(false)}>
-                    <Text style={styles.resendText}>Change Mobile Number</Text>
-                  </TouchableOpacity>
-                </>
-              )}
+                    <Button
+                      title="Login"
+                      onPress={handleLogin}
+                      loading={loading}
+                      style={styles.button}
+                    />
 
-              {showOtp && (
-                <View style={styles.mockNote}>
-                  <Ionicons name="information-circle" size={16} color={COLORS.warning} />
-                  <Text style={styles.mockText}>Demo Mode: Enter any 4-digit code</Text>
-                </View>
-              )}
-            </Card>
+                    <TouchableOpacity onPress={() => setShowOtp(false)}>
+                      <Text style={styles.resendText}>Change Mobile Number</Text>
+                    </TouchableOpacity>
+                  </>
+                )}
+
+                {showOtp && (
+                  <View style={styles.mockNote}>
+                    <Ionicons name="information-circle" size={16} color={COLORS.warning} />
+                    <Text style={styles.mockText}>Demo Mode: Enter any 4-digit code</Text>
+                  </View>
+                )}
+              </View>
+            </View>
 
             {/* Info */}
             <View style={styles.infoContainer}>
@@ -310,15 +312,25 @@ const styles = StyleSheet.create({
   formCard: {
     marginBottom: SPACING.lg,
     backgroundColor: COLORS.secondary,
-    borderWidth: 1,
-    borderColor: 'rgba(247, 195, 49, 0.2)',
+    borderWidth: 2,
+    borderColor: COLORS.accent,
+    borderRadius: BORDER_RADIUS.lg,
+    overflow: 'hidden',
   },
   formTitle: {
     fontSize: 20,
     fontWeight: '600',
     color: COLORS.cream,
-    marginBottom: SPACING.lg,
     textAlign: 'center',
+    paddingVertical: SPACING.lg,
+    backgroundColor: COLORS.primary,
+    borderBottomWidth: 1,
+    borderBottomColor: COLORS.accent,
+  },
+  formInner: {
+    paddingHorizontal: SPACING.xl,
+    paddingTop: SPACING.xl,
+    paddingBottom: SPACING.xl,
   },
   button: {
     marginTop: SPACING.md,
