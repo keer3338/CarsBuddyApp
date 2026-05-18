@@ -309,6 +309,9 @@ const styles = StyleSheet.create({
   },
   formCard: {
     marginBottom: SPACING.lg,
+    backgroundColor: COLORS.secondary,
+    borderWidth: 1,
+    borderColor: 'rgba(247, 195, 49, 0.2)',
   },
   formTitle: {
     fontSize: 20,

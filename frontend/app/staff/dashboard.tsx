@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   RefreshControl,
+  useWindowDimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
@@ -18,6 +19,8 @@ export default function StaffDashboard() {
   const router = useRouter();
   const { user, logout } = useAuth();
   const [refreshing, setRefreshing] = useState(false);
+  const { width: windowWidth } = useWindowDimensions();
+  const STAT_CARD_WIDTH = (windowWidth - SPACING.lg * 2 - SPACING.md) / 2;
 
   const statsData = {
     todayCompleted: 8,
@@ -92,25 +95,28 @@ export default function StaffDashboard() {
       >
         {/* Stats Grid */}
         <View style={styles.statsGrid}>
-          <LinearGradient colors={[COLORS.accent, COLORS.accentDark]} style={styles.statCard}>
+          <LinearGradient
+            colors={[COLORS.accent, COLORS.accentDark]}
+            style={[styles.statCard, { width: STAT_CARD_WIDTH }]}
+          >
             <Ionicons name="checkmark-circle" size={32} color={COLORS.primary} />
             <Text style={styles.statValue}>{statsData.todayCompleted}</Text>
             <Text style={styles.statLabel}>Completed Today</Text>
           </LinearGradient>
 
-          <Card variant="elevated" style={styles.statCard}>
+          <Card variant="elevated" style={[styles.statCard, { width: STAT_CARD_WIDTH }]}>
             <Ionicons name="time" size={32} color={COLORS.warning} />
             <Text style={styles.statValue}>{statsData.todayPending}</Text>
             <Text style={styles.statLabel}>Pending</Text>
           </Card>
 
-          <Card variant="elevated" style={styles.statCard}>
+          <Card variant="elevated" style={[styles.statCard, { width: STAT_CARD_WIDTH }]}>
             <Ionicons name="list" size={32} color={COLORS.accent} />
             <Text style={styles.statValue}>{statsData.todayTotal}</Text>
             <Text style={styles.statLabel}>Total Today</Text>
           </Card>
 
-          <Card variant="elevated" style={styles.statCard}>
+          <Card variant="elevated" style={[styles.statCard, { width: STAT_CARD_WIDTH }]}>
             <Ionicons name="trophy" size={32} color={COLORS.success} />
             <Text style={styles.statValue}>{statsData.monthCompleted}</Text>
             <Text style={styles.statLabel}>This Month</Text>
@@ -286,7 +292,6 @@ const styles = StyleSheet.create({
     rowGap: SPACING.md,
   },
   statCard: {
-    width: '47%',
     height: 130,
     padding: SPACING.md,
     alignItems: 'center',

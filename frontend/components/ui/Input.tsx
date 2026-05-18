@@ -43,14 +43,14 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    backgroundColor: COLORS.cardBgSolid,
+    backgroundColor: COLORS.primary,
     borderRadius: BORDER_RADIUS.md,
     paddingHorizontal: SPACING.md,
     paddingVertical: SPACING.md,
     color: COLORS.white,
     fontSize: 16,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
+    borderColor: 'rgba(247, 195, 49, 0.2)',
     minHeight: 48,
   },
   inputWithIcon: {
