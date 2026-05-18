@@ -12,7 +12,7 @@ export const SERVICES = [
     name: 'Interior Cleaning',
     description: 'Deep interior cleaning and vacuuming',
     credits: 4,
-    icon: 'car-side',
+    icon: 'car-sport',
     image: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800',
   },
   {

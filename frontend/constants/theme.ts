@@ -39,31 +39,19 @@ export const BORDER_RADIUS = {
 
 export const SHADOWS = {
   small: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)',
     elevation: 2,
   },
   medium: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
     elevation: 8,
   },
   large: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.37,
-    shadowRadius: 7.49,
+    boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.37)',
     elevation: 12,
   },
   gold: {
-    shadowColor: '#F7C331',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
+    boxShadow: '0px 4px 12px rgba(247, 195, 49, 0.4)',
     elevation: 8,
   },
 };
